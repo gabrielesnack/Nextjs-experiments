@@ -1,0 +1,42 @@
+"""Exposes a URL that specifies the behavior of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behavior of this scalar."""
+  url: String!
+) on SCALAR
+
+interface Node {
+  id: ID!
+}
+
+union NodeData = User
+
+type NodePayload {
+  id: ID!
+  data: NodeData
+  response: NodeResponse!
+}
+
+type NodeResponse {
+  ok: Boolean!
+  statusEnum: String!
+}
+
+type Query {
+  node(id: ID!): NodePayload
+  users: UsersQueryPayload!
+}
+
+type User implements Node {
+  id: ID!
+  name: String!
+}
+
+type UserResponse {
+  ok: Boolean!
+}
+
+type UsersQueryPayload {
+  data: [User]
+  response: UserResponse!
+}
+
