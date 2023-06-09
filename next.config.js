@@ -3,9 +3,11 @@ const webpack = require("webpack");
 //...
 /** @type {import('next').NextConfig} */
 module.exports = {
+  reactStrictMode: false,
   pageExtensions: ["page.tsx"],
   webpack: (config, { isServer, webpack }) => {
     config.resolve.preferRelative = true
+    
     if (!isServer) {
       // Ensures no server modules are included on the client.
       config.plugins.push(

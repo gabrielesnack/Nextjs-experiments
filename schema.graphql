@@ -10,20 +10,10 @@ interface Node {
 
 union NodeData = User
 
-type NodePayload {
-  id: ID!
-  data: NodeData
-  response: NodeResponse!
-}
-
-type NodeResponse {
-  ok: Boolean!
-  statusEnum: String!
-}
-
 type Query {
-  node(id: ID!): NodePayload
+  node(id: ID!): NodeData
   users: UsersQueryPayload!
+  user: UsersQueryPayload!
 }
 
 type User implements Node {
