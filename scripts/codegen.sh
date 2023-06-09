@@ -1,3 +1,5 @@
 #!/bin/bash
 
-pnpm get-graphql-schema http://localhost:3000/graphql > schema.graphql
+export "$(grep -vE "^(#.*|\s*)$" .env)"
+
+pnpm get-graphql-schema $NEXT_PUBLIC_GRAPHQL_API > schema.graphql

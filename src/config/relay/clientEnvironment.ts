@@ -1,10 +1,10 @@
 import { Environment, Network, Store, RecordSource } from 'relay-runtime';
+import { API_GRAPHQL_URL } from '../contants';
 
 export function createClientNetwork() {
   return Network.create(async (params, variables) => {
-    const response = await fetch('http://localhost:3000/graphql', {
+    const response = await fetch(API_GRAPHQL_URL, {
       method: 'POST',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

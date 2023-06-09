@@ -1,10 +1,10 @@
 import { graphql } from 'graphql';
 import { Environment, GraphQLResponse, Network, RecordSource, Store } from 'relay-runtime';
+import { API_GRAPHQL_URL } from '../contants';
 
 async function makeGraphQLRequest(text: any, variables: any) {
-  const response = await fetch('http://localhost:3000/graphql', {
+  const response = await fetch(API_GRAPHQL_URL, {
     method: 'POST',
-    credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
     },
