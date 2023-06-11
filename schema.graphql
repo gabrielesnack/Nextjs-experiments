@@ -4,6 +4,10 @@ directive @specifiedBy(
   url: String!
 ) on SCALAR
 
+type Mutation {
+  updateUser: UserQueryPayload!
+}
+
 interface Node {
   id: ID!
 }
@@ -13,12 +17,17 @@ union NodeData = User
 type Query {
   node(id: ID!): NodeData
   users: UsersQueryPayload!
-  user: UsersQueryPayload!
+  user: UserQueryPayload!
 }
 
 type User implements Node {
   id: ID!
   name: String!
+}
+
+type UserQueryPayload {
+  data: User
+  response: UserResponse!
 }
 
 type UserResponse {

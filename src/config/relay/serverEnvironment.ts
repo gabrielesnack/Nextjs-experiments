@@ -3,6 +3,7 @@ import { Environment, GraphQLResponse, Network, RecordSource, Store } from 'rela
 import { API_GRAPHQL_URL } from '../contants';
 
 async function makeGraphQLRequest(text: any, variables: any) {
+  console.log('API_GRAPHQL_URL', API_GRAPHQL_URL)
   const response = await fetch(API_GRAPHQL_URL, {
     method: 'POST',
     headers: {
